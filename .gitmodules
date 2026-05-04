@@ -7,3 +7,9 @@
 [submodule "skills/Automatiq/modules"]
 	path = skills/Automatiq/modules
 	url = https://github.com/stonesteel27/Automatiq/
+[submodule "skills/camoufox/modules"]
+	path = skills/camoufox/modules
+	url = https://github.com/daijro/camoufox
+[submodule "skills/CloakBrowser/modules"]
+	path = skills/CloakBrowser/modules
+	url = https://github.com/CloakHQ/CloakBrowser
