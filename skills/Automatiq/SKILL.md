@@ -1,5 +1,5 @@
 ---
-name: automatiq
+name: Automatiq
 description: Reverse-engineers a recorded browser session into a Python automation script.
 ---
 
