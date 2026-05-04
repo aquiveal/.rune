@@ -215,10 +215,5 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-# Roo
-objects
-
-# Roo Modules
-rules/node/typescript
-vendor/framework/medusa
-vendor/framework/payload
+# Rune
+rules/
