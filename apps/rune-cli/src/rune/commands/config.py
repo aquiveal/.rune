@@ -30,6 +30,10 @@ def config_cmd(
             config.add(rune_config_path, key, value)
         else:
             config.set_value(rune_config_path, key, value)
+            
+        if key == "agent.name":
+            from rune.services import workspace
+            workspace.update_gitignore(cwd)
     else:
         # Get value
         val = config.get_value(rune_config_path, key)
