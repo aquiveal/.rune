@@ -20,6 +20,15 @@ You can install Rune CLI globally in your system or use it within a virtual envi
 #### Option 1: Global Installation via pipx or uv (Recommended for WSL/Windows)
 To install Rune globally on your system so you can use the `rune` command anywhere:
 ```sh
+# Install globally using pipx from git
+pipx install "git+https://github.com/aquiveal/rune.git#subdirectory=apps/rune-cli"
+
+# Or using uv from git
+uv tool install "git+https://github.com/aquiveal/rune.git#subdirectory=apps/rune-cli"
+```
+
+You can also install it from a local clone:
+```sh
 # Navigate to the rune-cli directory
 cd apps/rune-cli
 

@@ -1,6 +1,7 @@
 import subprocess
 import shutil
 import uuid
+import sys
 from pathlib import Path
 from rune.services import config
 import os
@@ -21,15 +22,39 @@ def add_module(root_dir: Path, url: str, path: str) -> None:
     # Clone with depth 1
     subprocess.run(["git", "clone", "--depth", "1", url, str(tmp_dir)], check=True)
     
-    # Initialize submodules for the requested path
+    # Find and initialize submodules that are within or at the requested path
+    normalized_path = path.replace('\\', '/')
+    submodule_paths = []
+    gitmodules_file = tmp_dir / ".gitmodules"
+    if gitmodules_file.exists():
+        result = subprocess.run(
+            ["git", "config", "--file", ".gitmodules", "--get-regexp", "path"],
+            cwd=str(tmp_dir),
+            capture_output=True,
+            text=True
+        )
+        if result.returncode == 0:
+            for line in result.stdout.strip().split('\n'):
+                if not line: continue
+                parts = line.split(None, 1)
+                if len(parts) == 2:
+                    sm_path = parts[1].strip()
+                    if sm_path == normalized_path or sm_path.startswith(f"{normalized_path}/"):
+                        submodule_paths.append(sm_path)
+    
+    # Always include the requested path to maintain original behavior
+    if normalized_path not in submodule_paths:
+        submodule_paths.append(normalized_path)
+
     try:
+        # Initialize and update submodules. We remove --depth 1 to be more robust.
         subprocess.run(
-            ["git", "-c", "protocol.file.allow=always", "submodule", "update", "--init", "--recursive", "--depth", "1", "--", path],
+            ["git", "-c", "protocol.file.allow=always", "submodule", "update", "--init", "--recursive", "--"] + submodule_paths,
             cwd=str(tmp_dir),
             check=True
         )
-    except subprocess.CalledProcessError:
-        pass # Ignore if no submodules exist or it fails
+    except subprocess.CalledProcessError as e:
+        print(f"Warning: Failed to initialize submodules in {path}: {e}", file=sys.stderr)
     
     # 2. Extract target directory into .rune/modules/<path>
     source_path = tmp_dir / path
