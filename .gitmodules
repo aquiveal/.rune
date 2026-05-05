@@ -15,7 +15,7 @@
 	url = https://github.com/CloakHQ/CloakBrowser
 [submodule "skills/plasmo/modules"]
 	path = skills/plasmo/modules
-	url = https://github.com/plasmohq/plasmo
+	url = https://github.com/PlasmoHQ/plasmo
 [submodule "skills/plasmo/examples"]
 	path = skills/plasmo/examples
 	url = https://github.com/PlasmoHQ/examples
