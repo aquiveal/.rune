@@ -22,3 +22,6 @@
 [submodule "skills/plasmo/docs"]
 	path = skills/plasmo/docs
 	url = https://github.com/PlasmoHQ/docs
+[submodule "skills/frappe-ui/modules"]
+	path = skills/frappe-ui/modules
+	url = https://github.com/frappe/frappe-ui
