@@ -25,3 +25,6 @@
 [submodule "skills/frappe-ui/modules"]
 	path = skills/frappe-ui/modules
 	url = https://github.com/frappe/frappe-ui
+[submodule "skills/hatchet/modules"]
+	path = skills/hatchet/modules
+	url = https://github.com/hatchet-dev/hatchet
