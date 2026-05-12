@@ -68,7 +68,7 @@ def add_module(root_dir: Path, url: str, path: str) -> None:
         shutil.rmtree(target_path, ignore_errors=True)
     
     # Copy from tmp to target, ignoring .git files/directories
-    shutil.copytree(source_path, target_path, ignore=shutil.ignore_patterns('.git'))
+    shutil.copytree(source_path, target_path, ignore=shutil.ignore_patterns('.git'), symlinks=True)
     
     # Cleanup tmp
     shutil.rmtree(tmp_dir, ignore_errors=True)
@@ -88,7 +88,7 @@ def add_module(root_dir: Path, url: str, path: str) -> None:
         try:
             os.symlink(target_path.absolute(), agent_path.absolute(), target_is_directory=True)
         except OSError:
-            shutil.copytree(target_path, agent_path)
+            shutil.copytree(target_path, agent_path, symlinks=True)
             
     # 4. Write new entry to .runemodules
     runemodules_path = root_dir / ".runemodules"
