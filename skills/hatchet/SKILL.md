@@ -1,7 +1,6 @@
 ---
 name: hatchet
 description: Operational guide for AI agents to interact with and manage the Hatchet task engine.
-
 ---
 
 ## 1. Define Clear Boundaries
