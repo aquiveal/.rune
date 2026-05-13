@@ -11,7 +11,7 @@ app = typer.Typer(
 def callback():
     pass
 
-from rune.commands import init, config, remote, submodule, update, fetch, pull, status, diff, vendor
+from rune.commands import init, config, remote, submodule, update, fetch, pull, status, diff, vendor, skill
 
 app.command(name="init")(init.init_cmd)
 app.command(name="config")(config.config_cmd)
@@ -34,6 +34,10 @@ app.add_typer(submodule_app, name="submodule")
 vendor_app = typer.Typer(no_args_is_help=True)
 vendor_app.command(name="add")(vendor.add_cmd)
 app.add_typer(vendor_app, name="vendor")
+
+skill_app = typer.Typer(no_args_is_help=True)
+skill_app.command(name="validate")(skill.validate_cmd)
+app.add_typer(skill_app, name="skill")
 
 def main():
     app()
