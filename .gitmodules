@@ -28,12 +28,15 @@
 [submodule "skills/hatchet/modules"]
 	path = skills/hatchet/modules
 	url = https://github.com/hatchet-dev/hatchet
-[submodule "skills/trigger.dev/modules"]
-	path = skills/trigger.dev/modules
+[submodule "skills/trigger/modules"]
+	path = skills/trigger/modules
 	url = https://github.com/triggerdotdev/trigger.dev
-[submodule "skills/trigger.dev/skills"]
-	path = skills/trigger.dev/skills
+[submodule "skills/trigger/skills"]
+	path = skills/trigger/skills
 	url = https://github.com/triggerdotdev/skills
-[submodule "skills/trigger.dev/examples"]
-	path = skills/trigger.dev/examples
+[submodule "skills/trigger/examples"]
+	path = skills/trigger/examples
 	url = https://github.com/triggerdotdev/examples
+[submodule "skills/payload/modules"]
+	path = skills/payload/modules
+	url = https://github.com/payloadcms/payload
