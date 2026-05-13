@@ -1,6 +1,6 @@
 ---
 name: trigger
-description: Operational guidance for AI agents to build, configure, and manage background tasks and AI workflows using Trigger.dev (v4)
+description: Operational guidance for AI agents to build, configure, and manage background tasks and AI workflows using Trigger.dev (v4).
 ---
 # Trigger.dev Operational Skill
 
