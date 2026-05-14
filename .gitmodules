@@ -40,3 +40,6 @@
 [submodule "skills/payload/modules"]
 	path = skills/payload/modules
 	url = https://github.com/payloadcms/payload
+[submodule "skills/crawlee-python/modules"]
+	path = skills/crawlee-python/modules
+	url = https://github.com/apify/crawlee-python
